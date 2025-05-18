@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Font size change</title>
+    <style>
+        body{
+            font-family:Georgia, 'Times New Roman', Times, serif; 
+            text-align: center; 
+            margin: 100px
+        }
+        .container{
+            background-color: #5e4c37;
+            padding: 100px ;
+        }
+        .field{
+            background-attachment: fixed;
+            background-color: #ffe4c4;
+            padding: 10px;
+            font-size: 20px;
+        }
+        #size{
+            padding: 5px;
+        }
+        #click{
+            margin: auto;
+            padding: 5px;
+            margin-left: 10px;
+            border: none;
+            background-color: #fd8b00;
+        }
+    </style>
+  </head>
+  <body">
+    <div class="container">
+      <h1 id="fontchange" style="  transition: font-size 0.3s ease;">Watch me Grow</h1>
+      <div class="field">
+        <input type="number" id="size" placeholder="Enter size no." />
+
+        <button id="click" onclick="FontSize()">CHANGE SIZE</button>
+      </div>
+    </div>
+
+    <script>
+      let btn = document.getElementById("click");
+      let header = document.getElementById("fontchange");
+      let input = document.getElementById("size");
+
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const fontSize = Number(input.value);
+
+        if (fontSize > 0) {
+          header.style.fontSize = fontSize + "px";
+        } else {
+          alert("Please enter a valid positive number.");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Text Display</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+            margin: 100px;
+        }
+        .container {
+            background-color: #5e4c37;
+            padding: 50px;
+        }
+        .field {
+            background-attachment: fixed;
+            background-color: #ffe4c4;
+            padding: 10px;
+            font-size: 20px;
+        }
+        input, button {
+            padding: 5px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #fd8b00;
+            border: none;
+        }
+        #display-text {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="fontchange" style="transition: font-size 0.3s ease;">Fill the requirements</h1>
+        <div class="field">
+            <label>Text Color:</label>
+            <input type="text" id="text-color" placeholder="e.g.,pink #5e4c37">
+            <br>
+            <label>Background Color:</label>
+            <input type="text" id="bg-color" placeholder="e.g., white, #ffffff">
+            <br>
+            <label>Text Content:</label>
+            <input type="text" id="text-content" placeholder="Enter your text">
+            <br>
+            <button id="click" type="submit">Submit</button>
+        </div>
+        <div id="display-text"></div>
+    </div>
+
+    <script>
+        let btn = document.getElementById("click");
+        let displayText = document.getElementById("display-text");
+
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const textColor = document.getElementById("text-color").value;
+            const bgColor = document.getElementById("bg-color").value;
+            const textContent = document.getElementById("text-content").value;
+
+            if (textContent) {
+                displayText.textContent = textContent;
+                displayText.style.color = textColor;
+                displayText.style.backgroundColor = bgColor;
+            } else {
+                alert("Please enter some text.");
+            }
+        });
+    </script>
+</body>
+</html>
